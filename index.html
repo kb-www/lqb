@@ -1246,10 +1246,11 @@
     <div id="relocation-modal-scroll" class="fixed inset-0 z-50 overflow-y-auto w-full flex items-center justify-center p-4">
       <!-- Modal Content Card -->
       <div class="relative bg-white text-gray-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden border border-amber-200/40 transform transition-all my-8">
-        <!-- Close Button -->
-        <button id="close-relocation-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 bg-gray-50 hover:bg-gray-100 rounded-full p-2 transition-colors z-10">
-          <i data-lucide="x" class="w-5 h-5"></i><span class="sr-only">Dismiss</span>
+        <!-- Close Button (High Contrast Circular Floating Button) -->
+        <button id="close-relocation-modal" class="absolute top-4 right-4 text-gray-900 bg-white shadow-md rounded-full p-2 transition-colors z-50 cursor-pointer border border-gray-100" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;" aria-label="Dismiss">
+          <i data-lucide="x" class="w-5 h-5"></i>
         </button>
+
         <!-- Header -->
         <div class="bg-gradient-to-r from-amber-500/10 to-amber-600/10 px-6 py-8 text-center border-b border-gray-100">
           <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-500/10 text-gold-contrast mb-4 animate-bounce">
@@ -1281,9 +1282,9 @@
 
           <!-- Buttons -->
           <div class="flex flex-col gap-3">
-            <a href="https://book.lesliequigleybeauty.ie/" target="_blank" class="w-full custom-btn custom-btn-sm custom-btn-gold">
-              <i data-lucide="calendar-plus" class="w-4.5 h-4.5"></i> Book Appointment
-            </a>
+            <button id="close-relocation-modal-btn" class="w-full custom-btn custom-btn-sm custom-btn-gold">
+              <i data-lucide="check" class="w-4.5 h-4.5"></i> Close & View Website
+            </button>
             <a href="https://maps.app.goo.gl/ShZpob8jm6YJMNC29" target="_blank" class="w-full custom-btn custom-btn-sm custom-btn-dark">
               <i data-lucide="map" class="w-4.5 h-4.5"></i> Get Directions
             </a>

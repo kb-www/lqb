@@ -39,24 +39,35 @@ document.addEventListener('DOMContentLoaded', () => {
   // Relocation Modal Logic
   const relocationModal = document.getElementById('relocation-modal');
   const closeRelocationModal = document.getElementById('close-relocation-modal');
-  if (relocationModal && closeRelocationModal) {
+  const closeRelocationModalBtn = document.getElementById('close-relocation-modal-btn');
+  
+  if (relocationModal) {
     const relocationDismissed = localStorage.getItem('lqb_relocation_dismissed');
     if (!relocationDismissed) {
       setTimeout(() => {
         relocationModal.classList.remove('hidden');
       }, 800); // Open after a slight delay
     }
-    closeRelocationModal.addEventListener('click', () => {
+    
+    // Function to dismiss modal and save setting
+    const dismissRelocation = () => {
       relocationModal.classList.add('hidden');
       localStorage.setItem('lqb_relocation_dismissed', 'true');
-    });
+    };
+
+    if (closeRelocationModal) {
+      closeRelocationModal.addEventListener('click', dismissRelocation);
+    }
+    if (closeRelocationModalBtn) {
+      closeRelocationModalBtn.addEventListener('click', dismissRelocation);
+    }
+
     // Tap on the backdrop to close
     const relocationScroll = document.getElementById('relocation-modal-scroll');
     if (relocationScroll) {
       relocationScroll.addEventListener('click', (e) => {
         if (e.target === relocationScroll) {
-          relocationModal.classList.add('hidden');
-          localStorage.setItem('lqb_relocation_dismissed', 'true');
+          dismissRelocation();
         }
       });
     }
