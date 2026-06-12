@@ -533,10 +533,38 @@
       background-color: #20ba5a !important;
       border-color: #20ba5a !important;
     }
+
+    /* Partner social buttons layout overrides */
+    .partner-btns-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+    .partner-btn {
+      width: 100% !important;
+      box-sizing: border-box;
+    }
+    @media (min-width: 640px) {
+      .partner-btns-container {
+        flex-direction: row;
+        gap: 1rem;
+      }
+      .partner-btn {
+        width: auto !important;
+      }
+    }
   </style>
 </head>
 
 <body class="bg-gray-50 text-gray-700 antialiased font-sans">
+
+  <!-- ==========================================
+       RELOCATION NOTICES (TO DISABLE WHEN NO LONGER NEEDED):
+       1. Comment out or delete the "announcement-banner" block below.
+       2. Comment out or delete the "relocation-modal" block at the bottom of this file.
+       ========================================== -->
 
   <!-- Relocation Notice Header Banner -->
   <div id="announcement-banner"
@@ -704,14 +732,7 @@
                 </div>
                 <p class="text-sm text-gray-500 mt-1">Safe removal of old gel polish followed by full prep and fresh color application.</p>
               </li>
-              <li class="flex flex-col">
-                <div class="flex justify-between items-baseline">
-                  <span class="font-bold text-gray-900 text-lg">Full Manicure</span>
-                  <span class="menu-item-connector"></span>
-                  <span class="font-bold text-gray-900 text-lg">From €40</span>
-                </div>
-                <p class="text-sm text-gray-500 mt-1">Complete luxury hand soak, scrub, cuticle tidy, shape, hand massage, and polish.</p>
-              </li>
+
               <li class="flex flex-col">
                 <div class="flex justify-between items-baseline">
                   <span class="font-bold text-gray-900 text-lg">File & Polish</span>
@@ -835,11 +856,11 @@
               </p>
             </div>
             
-            <div class="flex flex-wrap gap-4 mt-6">
-              <a href="https://www.facebook.com/spawellhair/" target="_blank" rel="noopener noreferrer" class="custom-btn custom-btn-xs custom-btn-dark">
+            <div class="partner-btns-container">
+              <a href="https://www.facebook.com/spawellhair/" target="_blank" rel="noopener noreferrer" class="partner-btn custom-btn custom-btn-xs custom-btn-dark">
                 <i data-lucide="facebook" class="w-4 h-4"></i> Spawell Hair Page
               </a>
-              <a href="https://www.facebook.com/people/Spawell-Barber-shop/100063754950824/?ref=page_internal&mt_nav=0#" target="_blank" rel="noopener noreferrer" class="custom-btn custom-btn-xs custom-btn-light">
+              <a href="https://www.facebook.com/people/Spawell-Barber-shop/100063754950824/?ref=page_internal&mt_nav=0#" target="_blank" rel="noopener noreferrer" class="partner-btn custom-btn custom-btn-xs custom-btn-light">
                 <i data-lucide="scissors" class="w-4 h-4"></i> Spawell Barber Page
               </a>
             </div>
@@ -1243,7 +1264,7 @@
     <div class="fixed inset-0 bg-black/75 backdrop-blur-md transition-opacity" aria-hidden="true"></div>
 
     <!-- Scroll Wrapper -->
-    <div id="relocation-modal-scroll" class="fixed inset-0 z-50 overflow-y-auto w-full flex items-center justify-center p-4">
+    <div id="relocation-modal-scroll" class="fixed inset-0 z-50 overflow-y-auto w-full flex items-start justify-center p-4 md:items-center">
       <!-- Modal Content Card -->
       <div class="relative bg-white text-gray-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden border border-amber-200/40 transform transition-all my-8">
         <!-- Close Button (High Contrast Circular Floating Button) -->
@@ -1282,12 +1303,12 @@
 
           <!-- Buttons -->
           <div class="flex flex-col gap-3">
-            <button id="close-relocation-modal-btn" class="w-full custom-btn custom-btn-sm custom-btn-gold">
-              <i data-lucide="check" class="w-4.5 h-4.5"></i> Close & View Website
-            </button>
             <a href="https://maps.app.goo.gl/ShZpob8jm6YJMNC29" target="_blank" class="w-full custom-btn custom-btn-sm custom-btn-dark">
               <i data-lucide="map" class="w-4.5 h-4.5"></i> Get Directions
             </a>
+            <button id="close-relocation-modal-btn" class="w-full custom-btn custom-btn-sm custom-btn-gold">
+              <i data-lucide="check" class="w-4.5 h-4.5"></i> Close & View Website
+            </button>
           </div>
         </div>
       </div>
