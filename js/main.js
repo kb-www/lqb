@@ -60,6 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
+    // Manual trigger button (e.g., from header notice banner)
+    const openRelocationButtons = document.querySelectorAll('.js-open-relocation-modal');
+    openRelocationButtons.forEach(btn => btn.addEventListener('click', () => {
+      relocationModal.classList.remove('hidden');
+    }));
   }
 
   // Cookie Consent Logic

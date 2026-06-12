@@ -241,19 +241,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookingModal = document.getElementById('booking-modal');
     const openModalButtons = document.querySelectorAll('.js-open-booking-modal');
     const closeModalButton = document.getElementById('modal-close-button');
-
-    const openModal = () => {
-        bookingModal.classList.remove('hidden');
-    };
-
-    const closeModal = () => {
-        bookingModal.classList.add('hidden');
-    };
-
     const modalScroll = document.getElementById('booking-modal-scroll');
-    openModalButtons.forEach(btn => btn.addEventListener('click', openModal));
-    closeModalButton.addEventListener('click', closeModal);
-    // Tap on the dark backdrop (scroll wrapper, not the white card) to close
-    modalScroll.addEventListener('click', (e) => { if (e.target === modalScroll) closeModal(); });
-    document.addEventListener('keydown', (e) => { if (e.key === "Escape" && !bookingModal.classList.contains('hidden')) closeModal(); });
+
+    if (bookingModal && openModalButtons.length > 0 && closeModalButton && modalScroll) {
+        const openModal = () => {
+            bookingModal.classList.remove('hidden');
+        };
+
+        const closeModal = () => {
+            bookingModal.classList.add('hidden');
+        };
+
+        openModalButtons.forEach(btn => btn.addEventListener('click', openModal));
+        closeModalButton.addEventListener('click', closeModal);
+        // Tap on the dark backdrop (scroll wrapper, not the white card) to close
+        modalScroll.addEventListener('click', (e) => { if (e.target === modalScroll) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === "Escape" && !bookingModal.classList.contains('hidden')) closeModal(); });
+    }
 });
