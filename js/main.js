@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // GA4: booking outbound links (modal, footer, etc.) — only fires when gtag is loaded (cookie consent)
   document.addEventListener('click', (e) => {
-    const a = e.target.closest('a[href*="lesliequigleybeauty.setmore.com"]');
+    const a = e.target.closest('a[href*="book.lesliequigleybeauty.ie"]');
     if (!a || typeof window.trackBookOnlineClick !== 'function') return;
     let source = a.getAttribute('data-ga-location');
     if (!source) {
