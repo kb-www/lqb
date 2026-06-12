@@ -1,0 +1,5 @@
+# https://www.lesliequigleybeauty.ie
+User-agent: *
+Allow: /
+
+Sitemap: https://www.lesliequigleybeauty.ie/sitemap.xml
