@@ -19,7 +19,7 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Leslie Quigley Beauty | Premium Nails & Brows Dublin | Spawell Complex">
   <meta property="og:description"
-    content="Now relocated to the Spawell Complex (inside Trevor Francis Hairdressing). High-end gel nails, BIAB builder overlays, lash and brow tints, and henna brows. Booking in seconds via Setmore.">
+    content="Now relocated to the Spawell Complex (inside Trevor Francis Hairdressing). High-end gel nails, BIAB builder overlays, lash and brow tints, and henna brows. Fast, secure booking with no account needed.">
   <meta property="og:image" content="https://www.lesliequigleybeauty.ie/images/lqb-nails-collage.webp">
   <meta property="og:url" content="https://www.lesliequigleybeauty.ie/">
   <meta property="og:type" content="website">
@@ -389,6 +389,37 @@
       position: relative;
       top: -0.25rem;
     }
+
+    /* Floating Cookie Consent Card */
+    #cookie-consent-banner {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      left: 1.5rem;
+      max-width: calc(100% - 3rem);
+      background: #241e1a; /* Solid dark taupe */
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 1.25rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(201, 155, 80, 0.35); /* Subtle gold border */
+      z-index: 50; /* Sits above standard elements */
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+    }
+
+    #cookie-consent-banner.translate-y-full {
+      transform: translateY(calc(100% + 2rem)) !important;
+    }
+
+    @media (min-width: 768px) {
+      #cookie-consent-banner {
+        left: auto;
+        max-width: 380px;
+      }
+    }
   </style>
 </head>
 
@@ -405,17 +436,17 @@
   </div>
 
   <!-- Header -->
-  <header class="bg-white/95 backdrop-blur-md sticky top-0 z-40 shadow-sm border-b border-gray-100">
+  <header class="bg-white sticky top-0 z-40 shadow-md border-b border-gray-200">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="/" class="flex items-center">
         <img src="/images/LQB_LOGO_S.png" alt="Leslie Quigley Beauty Logo" class="h-12 w-auto" />
       </a>
       <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
-        <a href="#services" class="text-gray-600 hover:text-amber-500 transition-colors font-medium">Services</a>
-        <a href="#about" class="text-gray-600 hover:text-amber-500 transition-colors font-medium">Our Story</a>
-        <a href="#gallery" class="text-gray-600 hover:text-amber-500 transition-colors font-medium">Gallery</a>
-        <a href="#testimonials" class="text-gray-600 hover:text-amber-500 transition-colors font-medium">Reviews</a>
-        <a href="#contact" class="text-gray-600 hover:text-amber-500 transition-colors font-medium">Find Us</a>
+        <a href="#services" class="text-gray-900 hover:text-amber-600 transition-colors font-semibold">Services</a>
+        <a href="#about" class="text-gray-900 hover:text-amber-600 transition-colors font-semibold">Our Story</a>
+        <a href="#gallery" class="text-gray-900 hover:text-amber-600 transition-colors font-semibold">Gallery</a>
+        <a href="#testimonials" class="text-gray-900 hover:text-amber-600 transition-colors font-semibold">Reviews</a>
+        <a href="#contact" class="text-gray-900 hover:text-amber-600 transition-colors font-semibold">Find Us</a>
       </nav>
       <div class="flex items-center space-x-4">
         <button
@@ -429,11 +460,11 @@
       </div>
     </div>
     <nav id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t border-gray-100 bg-white" aria-label="Mobile Navigation">
-      <a href="#services" class="block py-3 text-gray-600 hover:text-amber-500 border-b border-gray-50">Services</a>
-      <a href="#about" class="block py-3 text-gray-600 hover:text-amber-500 border-b border-gray-50">Our Story</a>
-      <a href="#gallery" class="block py-3 text-gray-600 hover:text-amber-500 border-b border-gray-50">Gallery</a>
-      <a href="#testimonials" class="block py-3 text-gray-600 hover:text-amber-500 border-b border-gray-50">Reviews</a>
-      <a href="#contact" class="block py-3 text-gray-600 hover:text-amber-500 border-b border-gray-50">Find Us</a>
+      <a href="#services" class="block py-3 text-gray-900 hover:text-amber-600 border-b border-gray-100 font-semibold">Services</a>
+      <a href="#about" class="block py-3 text-gray-900 hover:text-amber-600 border-b border-gray-100 font-semibold">Our Story</a>
+      <a href="#gallery" class="block py-3 text-gray-900 hover:text-amber-600 border-b border-gray-100 font-semibold">Gallery</a>
+      <a href="#testimonials" class="block py-3 text-gray-900 hover:text-amber-600 border-b border-gray-100 font-semibold">Reviews</a>
+      <a href="#contact" class="block py-3 text-gray-900 hover:text-amber-600 border-b border-gray-100 font-semibold">Find Us</a>
       <button
         class="js-open-booking-modal w-full mt-4 text-center bg-amber-500 text-gray-900 font-bold py-3 px-6 rounded-full hover:bg-amber-400 transition-all shadow-md">
         Book an Appointment
@@ -444,58 +475,61 @@
   <main>
     <!-- Hero Section -->
     <section id="hero"
-      class="relative h-[80vh] min-h-[500px] md:h-[85vh] md:min-h-[600px] text-white flex items-center justify-center overflow-hidden bg-gray-950">
+      class="relative h-[80vh] min-h-[500px] md:h-[85vh] md:min-h-[650px] text-white flex items-center justify-center overflow-hidden bg-gray-950">
       <img src="/images/LQ_BEAUTY-1.png" alt="High-end nails and lashes by Leslie Quigley Beauty"
         width="1640" height="924" fetchpriority="high" decoding="async"
-        class="absolute inset-0 w-full h-full object-cover opacity-30" />
+        class="absolute inset-0 w-full h-full object-cover opacity-20" />
       <!-- High contrast premium overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-gray-950/45 to-transparent"></div>
-      <div class="relative text-center z-10 px-6 max-w-4xl">
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold font-display leading-tight mb-4 text-shadow-lg" style="text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);">
-          <span class="block text-white">Leslie Quigley Beauty</span>
-          <span class="block text-2xl md:text-4xl lg:text-5xl text-amber-500 mt-3 font-semibold tracking-wide">High-End Nails, Brows & Lashes</span>
-        </h1>
-        <p class="text-sm sm:text-base md:text-lg font-medium uppercase tracking-[0.25em] text-gray-200 max-w-2xl mx-auto mb-8 px-2" style="text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);">
-          Now located in the Spawell Complex, Dublin 6W
-        </p>
-        <div class="flex flex-col items-center gap-3">
-          <button
-            class="js-open-booking-modal bg-amber-500 text-gray-900 font-bold py-4 px-10 rounded-full hover:bg-amber-400 transition-all duration-300 transform hover:scale-105 shadow-xl text-lg btn-pulse-glow">
-            Book Appointment
-          </button>
-          <div
-            class="flex flex-wrap items-center justify-center gap-2 text-xs md:text-sm text-gray-300 mt-2 font-medium">
-            <i data-lucide="shield-check" class="w-4 h-4 text-amber-500"></i>
-            <span>Setmore Booking &bull; Local Nail & Brow Specialists &bull; WhatsApp Notifications</span>
+      <div class="absolute inset-0 bg-gradient-to-t from-gray-950/95 via-gray-950/40 to-transparent"></div>
+      <div class="relative z-10 px-6 w-full max-w-3xl mx-auto">
+        <!-- Glassmorphic Content Card for Maximum Legibility -->
+        <div class="bg-gray-950/65 backdrop-blur-md border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col items-center">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-tight mb-4 text-shadow-lg text-center" style="text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);">
+            <span class="block text-white">Leslie Quigley Beauty</span>
+            <span class="block text-xl md:text-2xl lg:text-3xl text-amber-500 mt-3 font-semibold tracking-wide">High-End Nails, Brows & Lashes</span>
+          </h1>
+          <p class="text-xs sm:text-sm md:text-base font-medium uppercase tracking-[0.2em] text-gray-200 max-w-xl mx-auto mb-8 px-2 text-center" style="text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);">
+            Now located in the Spawell Complex, Dublin 6W
+          </p>
+          <div class="flex flex-col items-center gap-4 w-full">
+            <button
+              class="js-open-booking-modal bg-amber-500 text-gray-900 font-bold py-3.5 px-10 rounded-full hover:bg-amber-400 transition-all duration-300 transform hover:scale-105 shadow-xl text-base md:text-lg btn-pulse-glow cursor-pointer">
+              Book Appointment
+            </button>
+            <div
+              class="flex flex-wrap items-center justify-center gap-2 text-xs md:text-sm text-gray-300 mt-2 font-medium">
+              <i data-lucide="shield-check" class="w-4 h-4 text-amber-500"></i>
+              <span>Secure Booking &bull; No Account Needed &bull; Free WhatsApp Reminders</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Relocation Highlights Section -->
-    <section class="py-12 bg-amber-50/40 border-b border-amber-100">
-      <div class="container mx-auto px-6 max-w-5xl">
-        <div class="grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
-          <div class="flex flex-col items-center md:items-start">
-            <div class="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-600 mb-3">
+    <section class="py-16 bg-[#faf7f2] border-b border-gray-200">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white p-8 rounded-2xl border border-amber-500/10 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-full bg-amber-500/5 flex items-center justify-center text-amber-600 mb-4 border border-amber-500/15">
               <i data-lucide="sparkles" class="w-6 h-6"></i>
             </div>
-            <h3 class="text-lg font-bold text-gray-900 mb-1">Stunning New Studio</h3>
-            <p class="text-sm text-gray-600">Now situated inside the beautiful Trevor Francis Hairdressing salon, offering space, comfort, and premium styling.</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-2 font-display">Stunning New Studio</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Now situated inside the beautiful Trevor Francis Hairdressing salon, offering space, comfort, and premium styling.</p>
           </div>
-          <div class="flex flex-col items-center md:items-start">
-            <div class="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-600 mb-3">
+          <div class="bg-white p-8 rounded-2xl border border-amber-500/10 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-full bg-amber-500/5 flex items-center justify-center text-amber-600 mb-4 border border-amber-500/15">
               <i data-lucide="map" class="w-6 h-6"></i>
             </div>
-            <h3 class="text-lg font-bold text-gray-900 mb-1">Easy to Reach</h3>
-            <p class="text-sm text-gray-600">Located at the iconic Spawell Complex, Wellington Lane, Tallaght Road (D6W V992) with ample free parking.</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-2 font-display">Easy to Reach</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Located at the iconic Spawell Complex, Wellington Lane, Tallaght Road (D6W V992) with ample free parking.</p>
           </div>
-          <div class="flex flex-col items-center md:items-start">
-            <div class="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-600 mb-3">
+          <div class="bg-white p-8 rounded-2xl border border-amber-500/10 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-full bg-amber-500/5 flex items-center justify-center text-amber-600 mb-4 border border-amber-500/15">
               <i data-lucide="users" class="w-6 h-6"></i>
             </div>
-            <h3 class="text-lg font-bold text-gray-900 mb-1">Family Friendly</h3>
-            <p class="text-sm text-gray-600">Coordinate a luxury nail pamper day while kids get haircuts at Spawell Barber Shop or family gets styling at Trevor Francis!</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-2 font-display">Family Friendly</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Coordinate a luxury nail pamper day while kids get haircuts at Spawell Barber Shop or family gets styling at Trevor Francis!</p>
           </div>
         </div>
       </div>
@@ -991,7 +1025,7 @@
       <p class="text-sm">&copy; <span id="year"></span> Leslie Quigley Beauty. All Rights Reserved.</p>
       <p class="mt-3">
         <a href="https://book.lesliequigleybeauty.ie/" target="_blank" rel="noopener noreferrer" data-ga-location="footer"
-          class="text-sm text-amber-500 hover:text-amber-400 font-semibold underline">Book Online via Setmore</a>
+          class="text-sm text-amber-500 hover:text-amber-400 font-semibold underline">Book Online (No Account Needed)</a>
       </p>
       
       <div class="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-500 font-medium">
@@ -1038,16 +1072,16 @@
         <div class="p-5 sm:p-6">
           <div class="mb-5 rounded-xl border border-amber-200 bg-amber-50/50 p-4">
             <div class="flex items-center gap-2 mb-1 text-amber-900 font-bold text-sm">
-              <i data-lucide="zap" class="w-4 h-4 text-amber-600"></i> Fast Online Booking
+              <i data-lucide="zap" class="w-4 h-4 text-amber-600"></i> Fast, Secure Booking
             </div>
-            <p class="text-amber-800 text-xs leading-relaxed">Book your nails, brows, or lash appointments in seconds. Pick your treatments and select your slot.</p>
+            <p class="text-amber-800 text-xs leading-relaxed">Book in seconds with our own custom booking system. No account needed and free WhatsApp reminders!</p>
           </div>
 
           <!-- CTAs -->
           <div class="flex flex-col gap-3 mb-6">
             <a href="https://book.lesliequigleybeauty.ie/" target="_blank" rel="noopener noreferrer" data-ga-location="modal"
               class="w-full flex items-center justify-center gap-2 bg-amber-500 text-gray-900 font-bold py-3.5 px-4 rounded-full hover:bg-amber-400 transition-all shadow-sm text-sm">
-              <i data-lucide="calendar-plus" class="w-4 h-4"></i> Book Online via Setmore
+              <i data-lucide="calendar-plus" class="w-4 h-4"></i> Book Online Now
             </a>
             <a href="https://wa.me/353862228500" target="_blank" rel="noopener noreferrer"
               class="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white font-bold py-3.5 px-4 rounded-full transition-all shadow-sm text-sm">
@@ -1131,18 +1165,20 @@
     </div>
   </div>
 
-  <!-- Cookie Consent Banner -->
-  <div id="cookie-consent-banner"
-    class="fixed bottom-0 left-0 right-0 bg-gray-950/95 backdrop-blur-md text-white p-4 z-40 transition-transform duration-500 translate-y-full border-t border-gray-800"
-    data-nosnippet>
-    <div class="container mx-auto max-w-4xl flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="text-center sm:text-left">
-        <p class="text-sm text-gray-300">We use cookies to analyse website traffic and optimize booking. Click "Accept" to consent, or read our <a href="/privacy-policy.html" class="underline hover:text-amber-400 font-semibold">Privacy Policy</a>.</p>
+  <!-- Cookie Consent Card -->
+  <div id="cookie-consent-banner" class="translate-y-full" data-nosnippet>
+    <div class="flex items-start gap-3">
+      <div class="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 shrink-0">
+        <i data-lucide="cookie" class="w-5.5 h-5.5"></i>
       </div>
-      <div class="flex gap-3 w-full sm:w-auto">
-        <button id="accept-cookies" class="flex-1 sm:flex-initial bg-amber-500 text-gray-900 font-bold py-2 px-6 rounded-full text-xs hover:bg-amber-400 transition-colors whitespace-nowrap">Accept</button>
-        <button id="decline-cookies" class="flex-1 sm:flex-initial bg-gray-800 text-gray-300 font-semibold py-2 px-6 rounded-full text-xs hover:bg-gray-700 transition-colors whitespace-nowrap">Decline</button>
+      <div>
+        <h3 class="text-sm font-bold text-white mb-1">Cookie Settings</h3>
+        <p class="text-[11px] text-gray-300 leading-relaxed">We use cookies to analyse website traffic and optimize booking. Click "Accept All" to consent, or read our <a href="/privacy-policy.html" class="underline text-amber-400 hover:text-amber-300 font-semibold">Privacy Policy</a>.</p>
       </div>
+    </div>
+    <div class="flex gap-3 mt-1">
+      <button id="accept-cookies" class="flex-1 bg-amber-500 text-gray-900 font-bold py-2.5 px-4 rounded-full text-xs hover:bg-amber-400 transition-colors whitespace-nowrap cursor-pointer">Accept All</button>
+      <button id="decline-cookies" class="flex-1 bg-gray-800 text-gray-300 font-semibold py-2.5 px-4 rounded-full text-xs hover:bg-gray-700 transition-colors whitespace-nowrap cursor-pointer">Decline</button>
     </div>
   </div>
 
