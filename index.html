@@ -20,7 +20,7 @@
   <meta property="og:title" content="Leslie Quigley Beauty | Premium Nails & Brows Dublin | Spawell Complex">
   <meta property="og:description"
     content="Now relocated to the Spawell Complex (inside Trevor Francis Hairdressing). High-end gel nails, BIAB builder overlays, lash and brow tints, and henna brows. Fast, secure booking with no account needed.">
-  <meta property="og:image" content="https://www.lesliequigleybeauty.ie/images/lqb-nails-collage.webp">
+  <meta property="og:image" content="https://www.lesliequigleybeauty.ie/images/leslie-quigley-beauty-social-banner-landscape.jpg">
   <meta property="og:url" content="https://www.lesliequigleybeauty.ie/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_IE">
@@ -31,7 +31,7 @@
   <meta name="twitter:title" content="Leslie Quigley Beauty | Premium Nails & Brows Dublin">
   <meta name="twitter:description"
     content="Visit our gorgeous new nail and brow bar inside Trevor Francis Hairdressing at the Spawell Complex, Dublin 6W. Serving South Dublin.">
-  <meta name="twitter:image" content="https://www.lesliequigleybeauty.ie/images/lqb-nails-collage.webp">
+  <meta name="twitter:image" content="https://www.lesliequigleybeauty.ie/images/leslie-quigley-beauty-social-banner-landscape.jpg">
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -555,6 +555,14 @@
         width: auto !important;
       }
     }
+
+    /* Gallery Lightbox styles */
+    #gallery img {
+      cursor: pointer;
+    }
+    body.lightbox-open {
+      overflow: hidden !important;
+    }
   </style>
 </head>
 
@@ -617,7 +625,7 @@
     <!-- Hero Section -->
     <section id="hero"
       class="relative h-[80vh] min-h-[500px] md:h-[85vh] md:min-h-[650px] text-white flex items-center justify-center overflow-hidden bg-gray-950">
-      <img src="/images/premium-beauty-salon-spawell-complex.webp" alt="High-end nails and lashes by Leslie Quigley Beauty"
+      <img src="/images/premium-beauty-salon-spawell-complex.webp" alt="Nails and lashes by Leslie Quigley Beauty"
         width="1640" height="924" fetchpriority="high" decoding="async"
         class="absolute inset-0 w-full h-full object-cover opacity-20" />
       <!-- High contrast premium overlay -->
@@ -627,7 +635,7 @@
         <div class="hero-glass-card flex flex-col items-center">
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-tight mb-4 text-shadow-lg text-center" style="text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);">
             <span class="block text-white">Leslie Quigley Beauty</span>
-            <span class="block text-xl md:text-2xl lg:text-3xl text-amber-500 mt-3 font-semibold tracking-wide">High-End Nails, Brows & Lashes</span>
+            <span class="block text-xl md:text-2xl lg:text-3xl text-amber-500 mt-3 font-semibold tracking-wide">Nails, Brows & Lashes</span>
           </h1>
           <p class="text-xs sm:text-sm md:text-base font-medium uppercase tracking-[0.2em] text-gray-200 max-w-xl mx-auto mb-8 px-2 text-center" style="text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);">
             Now located in the Spawell Complex, Dublin 6W
@@ -796,7 +804,7 @@
 
             <div class="mt-8 p-4 border border-amber-200/50 bg-amber-50/50 rounded-xl flex gap-3 text-sm text-amber-800">
               <i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0 text-amber-600 mt-0.5"></i>
-              <p><strong>Important Note:</strong> All brow henna and tint clients are required to have a quick <strong>patch test 48 hours before</strong> their first treatment with us.</p>
+              <p><strong>Important Note:</strong> Patch testing can be booked online. Please note that services requiring a patch test (henna brows and tints) require a valid patch test on file before they can be booked online (completed at least 48 hours prior).</p>
             </div>
           </div>
         </div>
@@ -1047,7 +1055,7 @@
               <i data-lucide="chevron-down" class="w-6 h-6 transition duration-300 group-open:-rotate-180"></i>
             </summary>
             <div class="px-6 pb-6 text-gray-600 leading-relaxed text-sm">
-              Yes, a patch test is mandatory for all first-time clients booking eyebrow henna or a brow/lash tint. This must be carried out at least <strong>48 hours before</strong> your treatment. Contact us on WhatsApp to arrange a quick test.
+              Yes, a patch test is mandatory for all first-time clients booking eyebrow henna or a brow/lash tint. Patch testing can be booked online directly. Please note that services requiring a patch test will require a valid patch test on file (carried out at least <strong>48 hours before</strong> your treatment) before you can book those services online.
             </div>
           </details>
           <details class="group border border-gray-200 rounded-xl bg-gray-50/50 [&_summary::-webkit-details-marker]:hidden fade-in-section" style="transition-delay: 300ms;">
@@ -1312,6 +1320,37 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Gallery Lightbox Modal -->
+  <div id="gallery-lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 md:p-8 select-none transition-opacity duration-300 opacity-0">
+    <!-- Header: Close button and counter -->
+    <div class="flex justify-between items-center w-full z-10">
+      <span id="lightbox-counter" class="text-white/75 font-semibold text-sm tracking-wider"></span>
+      <button id="lightbox-close" class="text-white hover:text-amber-400 p-2 focus:outline-none transition-colors duration-200 cursor-pointer" aria-label="Close Lightbox">
+        <i data-lucide="x" class="w-8 h-8"></i>
+      </button>
+    </div>
+    
+    <!-- Content: Left arrow, Image, Right arrow -->
+    <div class="relative flex-1 flex items-center justify-center max-w-5xl mx-auto w-full my-4">
+      <button id="lightbox-prev" class="absolute left-0 text-white/70 hover:text-white p-3 hidden md:block focus:outline-none hover:bg-white/10 rounded-full transition duration-200 cursor-pointer z-10" aria-label="Previous Image">
+        <i data-lucide="chevron-left" class="w-8 h-8"></i>
+      </button>
+      
+      <div class="relative max-h-[75vh] md:max-h-[80vh] max-w-full flex justify-center items-center">
+        <img id="lightbox-img" src="" alt="" class="max-h-[75vh] md:max-h-[80vh] max-w-full object-contain rounded-lg shadow-2xl transition-transform duration-200">
+      </div>
+      
+      <button id="lightbox-next" class="absolute right-0 text-white/70 hover:text-white p-3 hidden md:block focus:outline-none hover:bg-white/10 rounded-full transition duration-200 cursor-pointer z-10" aria-label="Next Image">
+        <i data-lucide="chevron-right" class="w-8 h-8"></i>
+      </button>
+    </div>
+    
+    <!-- Footer: Caption -->
+    <div class="w-full text-center pb-4 z-10">
+      <p id="lightbox-caption" class="text-white/90 text-sm md:text-base max-w-2xl mx-auto px-4 font-sans font-medium leading-relaxed"></p>
     </div>
   </div>
 

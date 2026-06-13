@@ -114,4 +114,121 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.trackBookOnlineClick(source, a.href);
   }, true);
+
+  // Gallery Lightbox Logic
+  const lightbox = document.getElementById('gallery-lightbox');
+  if (lightbox) {
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const closeBtn = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    
+    const galleryImgs = Array.from(document.querySelectorAll('#gallery .grid img'));
+    let currentIndex = 0;
+    
+    function showImage(index) {
+      if (index < 0) index = galleryImgs.length - 1;
+      if (index >= galleryImgs.length) index = 0;
+      currentIndex = index;
+      
+      const img = galleryImgs[currentIndex];
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.textContent = img.alt;
+      lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImgs.length}`;
+    }
+    
+    function openLightbox(index) {
+      showImage(index);
+      lightbox.classList.remove('hidden');
+      // Force repaint to make opacity transition work
+      lightbox.offsetHeight;
+      lightbox.classList.add('opacity-100');
+      document.body.classList.add('lightbox-open');
+    }
+    
+    function closeLightbox() {
+      lightbox.classList.remove('opacity-100');
+      // Wait for opacity transition to finish
+      setTimeout(() => {
+        lightbox.classList.add('hidden');
+        document.body.classList.remove('lightbox-open');
+      }, 300);
+    }
+    
+    galleryImgs.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        openLightbox(index);
+      });
+    });
+    
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    // Click outside to close (backdrop)
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === lightboxImg.parentElement || e.target === lightboxImg.parentElement.parentElement) {
+        closeLightbox();
+      }
+    });
+    
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(currentIndex - 1);
+    });
+    
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(currentIndex + 1);
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+      if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    });
+    
+    // Mobile Touch/Swipe Gestures
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    lightbox.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+      const swipeDistanceX = touchEndX - touchStartX;
+      const swipeDistanceY = touchEndY - touchStartY;
+      
+      // Horizontal swipe to navigate
+      if (Math.abs(swipeDistanceX) > 50 && Math.abs(swipeDistanceX) > Math.abs(swipeDistanceY)) {
+        if (swipeDistanceX > 0) {
+          // Swipe right -> prev image
+          showImage(currentIndex - 1);
+        } else {
+          // Swipe left -> next image
+          showImage(currentIndex + 1);
+        }
+      }
+      // Vertical swipe down to close
+      else if (Math.abs(swipeDistanceY) > 80 && Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
+        if (swipeDistanceY > 0) {
+          // Swipe down -> close
+          closeLightbox();
+        }
+      }
+    }
+  }
 });
