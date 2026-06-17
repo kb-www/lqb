@@ -5,19 +5,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile Menu
   const menuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = menuButton.querySelector('i');
-  menuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    menuIcon.setAttribute('data-lucide', mobileMenu.classList.contains('hidden') ? 'menu' : 'x');
-    lucide.createIcons();
-  });
-  mobileMenu.querySelectorAll('a, button').forEach(link => {
+  const openIcon = document.getElementById('menu-icon-open');
+  const closeIcon = document.getElementById('menu-icon-close');
+
+  if (menuButton && mobileMenu && openIcon && closeIcon) {
+    menuButton.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      openIcon.classList.toggle('hidden', !isHidden);
+      closeIcon.classList.toggle('hidden', isHidden);
+    });
+    mobileMenu.querySelectorAll('a, button').forEach(link => {
       link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          menuIcon.setAttribute('data-lucide', 'menu');
-          lucide.createIcons();
+        mobileMenu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
       });
-  });
+    });
+  }
 
   // Animate sections on scroll
   const fadeSections = document.querySelectorAll('.fade-in-section');

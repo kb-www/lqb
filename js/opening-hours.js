@@ -120,7 +120,7 @@ function setupOpeningHours(config) {
 
     const today = new Date();
 
-    listEl.innerHTML = '';
+    let htmlContent = '';
     for (let i = 0; i < 8; i++) {
         const date = new Date(today);
         date.setDate(today.getDate() + i);
@@ -133,16 +133,14 @@ function setupOpeningHours(config) {
         else if (i === 1) dayString = `Tomorrow, ${dateString}`;
         else dayString = `${date.toLocaleDateString('en-IE', { weekday: 'short' })}, ${dateString}`;
 
-        const li = document.createElement('li');
-        li.className = `flex justify-between items-center ${i === 0 ? `font-bold ${theme.todayColor}` : ''}`;
-
-        if (dayData.hours) {
-            li.innerHTML = `<span>${dayString}:</span> <span class="tabular-nums">${formatTime(dayData.hours.o)} – ${formatTime(dayData.hours.c)}</span>`;
-        } else {
-            li.innerHTML = `<span>${dayString}:</span> <span>CLOSED</span>`;
-        }
-        listEl.appendChild(li);
+        const activeClass = i === 0 ? `font-bold ${theme.todayColor}` : '';
+        const hoursHTML = dayData.hours 
+            ? `<span class="tabular-nums">${formatTime(dayData.hours.o)} – ${formatTime(dayData.hours.c)}</span>`
+            : '<span>CLOSED</span>';
+            
+        htmlContent += `<li class="flex justify-between items-center ${activeClass}"><span>${dayString}:</span> ${hoursHTML}</li>`;
     }
+    listEl.innerHTML = htmlContent;
 
     if (noticesEl) {
         const notices = generateNotices(today);
