@@ -614,14 +614,6 @@
         width: auto !important;
       }
     }
-
-    /* Gallery Lightbox styles */
-    #gallery img {
-      cursor: pointer;
-    }
-    body.lightbox-open {
-      overflow: hidden !important;
-    }
   </style>
 </head>
 
@@ -1382,36 +1374,7 @@
     </div>
   </div>
 
-  <!-- Gallery Lightbox Modal -->
-  <div id="gallery-lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 md:p-8 select-none transition-opacity duration-300 opacity-0">
-    <!-- Header: Close button and counter (Absolute positioned for z-index protection) -->
-    <div class="absolute top-6 left-6 z-[120] bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm">
-      <span id="lightbox-counter" class="text-white/90 font-semibold text-xs tracking-wider"></span>
-    </div>
-    <button id="lightbox-close" onclick="closeGalleryLightbox()" class="absolute top-4 right-4 z-[120] text-white hover:text-amber-400 p-2.5 focus:outline-none transition-all duration-200 cursor-pointer bg-black/40 hover:bg-black/60 rounded-full backdrop-blur-sm" aria-label="Close Lightbox" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
-      <i data-lucide="x" class="w-7 h-7"></i>
-    </button>
-    
-    <!-- Content: Left arrow, Image, Right arrow -->
-    <div class="relative flex-1 flex items-center justify-center max-w-5xl mx-auto w-full my-4">
-      <button id="lightbox-prev" class="absolute left-0 text-white/70 hover:text-white p-3 hidden md:block focus:outline-none hover:bg-white/10 rounded-full transition duration-200 cursor-pointer z-10" aria-label="Previous Image">
-        <i data-lucide="chevron-left" class="w-8 h-8"></i>
-      </button>
-      
-      <div class="relative max-h-[75vh] md:max-h-[80vh] max-w-full flex justify-center items-center">
-        <img id="lightbox-img" src="" alt="" class="max-h-[75vh] md:max-h-[80vh] max-w-full object-contain rounded-lg shadow-2xl transition-transform duration-200">
-      </div>
-      
-      <button id="lightbox-next" class="absolute right-0 text-white/70 hover:text-white p-3 hidden md:block focus:outline-none hover:bg-white/10 rounded-full transition duration-200 cursor-pointer z-10" aria-label="Next Image">
-        <i data-lucide="chevron-right" class="w-8 h-8"></i>
-      </button>
-    </div>
-    
-    <!-- Footer: Caption -->
-    <div class="w-full text-center pb-4 z-10">
-      <p id="lightbox-caption" class="text-white/90 text-sm md:text-base max-w-2xl mx-auto px-4 font-sans font-medium leading-relaxed"></p>
-    </div>
-  </div>
+
 
   <!-- Cookie Consent Card -->
   <div id="cookie-consent-banner" class="translate-y-full" data-nosnippet>
