@@ -24,6 +24,7 @@
     --color-gray-700: #5f5247;
     --color-gray-800: #40362f;
     --color-gray-900: #241e1a;
+    --color-gray-950: #120e0c;
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -608,11 +609,17 @@
   .border-amber-500 {
     border-color: var(--color-amber-500);
   }
+  .border-gray-100 {
+    border-color: var(--color-gray-100);
+  }
   .border-gray-200 {
     border-color: var(--color-gray-200);
   }
   .border-gray-300 {
     border-color: var(--color-gray-300);
+  }
+  .border-gray-800 {
+    border-color: var(--color-gray-800);
   }
   .border-gray-900 {
     border-color: var(--color-gray-900);
@@ -661,6 +668,9 @@
   }
   .bg-gray-900 {
     background-color: var(--color-gray-900);
+  }
+  .bg-gray-950 {
+    background-color: var(--color-gray-950);
   }
   .bg-red-100 {
     background-color: var(--color-red-100);
