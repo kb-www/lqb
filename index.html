@@ -58,96 +58,155 @@
   <!-- GA init (external) -->
   <script src="/js/analytics.js" defer></script>
 
-  <!-- Schema.org JSON-LD Structured Data for Local Business/NailSalon indexing -->
+  <!-- Schema.org JSON-LD Structured Data (Yoast-style connected Graph for Local SEO & AEO) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BeautySalon",
-    "name": "Leslie Quigley Beauty",
-    "image": "https://www.lesliequigleybeauty.ie/images/lqb-nails-collage.webp",
-    "@id": "https://www.lesliequigleybeauty.ie/#beautysalon",
-    "url": "https://www.lesliequigleybeauty.ie/",
-    "telephone": "+35314428500",
-    "email": "hello@lqb.ie",
-    "priceRange": "€€",
-    "hasMap": "https://maps.app.goo.gl/ShZpob8jm6YJMNC29",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "5"
-    },
-    "sameAs": [
-      "https://share.google/eiuY39uwci23YoMhV",
-      "https://www.facebook.com/lesliequigleybeauty",
-      "https://www.instagram.com/lesliequigleybeauty"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Inside Trevor Francis Hairdressing, The Spawell Complex, Tallaght Road",
-      "addressLocality": "Dublin",
-      "addressRegion": "Dublin 6W",
-      "postalCode": "D6W V992",
-      "addressCountry": "IE"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 53.29139,
-      "longitude": -6.32611
-    },
-    "areaServed": [
-      { "@type": "Place", "name": "Knocklyon" },
-      { "@type": "Place", "name": "Firhouse" },
-      { "@type": "Place", "name": "Tallaght" },
-      { "@type": "Place", "name": "Templeogue" },
-      { "@type": "Place", "name": "Rathfarnham" },
-      { "@type": "Place", "name": "D16" },
-      { "@type": "Place", "name": "D14" },
-      { "@type": "Place", "name": "D24" },
-      { "@type": "Place", "name": "D6W" }
-    ],
-    "openingHoursSpecification": [
+    "@graph": [
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Wednesday",
-        "opens": "10:00",
-        "closes": "18:00"
+        "@type": "WebSite",
+        "@id": "https://www.lesliequigleybeauty.ie/#website",
+        "url": "https://www.lesliequigleybeauty.ie/",
+        "name": "Leslie Quigley Beauty",
+        "description": "Nail bar and brow salon inside Trevor Francis Hairdressing at Spawell Complex. Specializing in BIAB Builder Gel overlays, Gel Polish manicures, Henna brows, and lash and brow tint treatments.",
+        "publisher": {
+          "@id": "https://www.lesliequigleybeauty.ie/#beautysalon"
+        }
       },
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Thursday", "Friday"],
-        "opens": "10:00",
-        "closes": "19:00"
+        "@type": "WebPage",
+        "@id": "https://www.lesliequigleybeauty.ie/#webpage",
+        "url": "https://www.lesliequigleybeauty.ie/",
+        "name": "Leslie Quigley Beauty | Premium Nails & Brows Dublin | Spawell Complex",
+        "isPartOf": {
+          "@id": "https://www.lesliequigleybeauty.ie/#website"
+        },
+        "about": {
+          "@id": "https://www.lesliequigleybeauty.ie/#beautysalon"
+        },
+        "description": "Nail bar and brow salon inside Trevor Francis Hairdressing at Spawell Complex. Specializing in BIAB Builder Gel overlays, Gel Polish manicures, Henna brows, and lash and brow tint treatments."
       },
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "10:00",
-        "closes": "16:00"
+        "@type": "BeautySalon",
+        "@id": "https://www.lesliequigleybeauty.ie/#beautysalon",
+        "name": "Leslie Quigley Beauty",
+        "image": "https://www.lesliequigleybeauty.ie/images/leslie-quigley-beauty-social-banner-landscape.jpg",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.lesliequigleybeauty.ie/images/LQB_LOGO_S.png"
+        },
+        "url": "https://www.lesliequigleybeauty.ie/",
+        "telephone": "+35314428500",
+        "email": "hello@lqb.ie",
+        "priceRange": "€€",
+        "hasMap": "https://maps.app.goo.gl/ShZpob8jm6YJMNC29",
+        "sameAs": [
+          "https://share.google/eiuY39uwci23YoMhV",
+          "https://www.facebook.com/lesliequigleybeauty",
+          "https://www.instagram.com/lesliequigleybeauty"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Inside Trevor Francis Hairdressing, The Spawell Complex, Tallaght Road",
+          "addressLocality": "Dublin",
+          "addressRegion": "Dublin 6W",
+          "postalCode": "D6W V992",
+          "addressCountry": "IE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 53.29139,
+          "longitude": -6.32611
+        },
+        "areaServed": [
+          { "@type": "Place", "name": "Knocklyon" },
+          { "@type": "Place", "name": "Firhouse" },
+          { "@type": "Place", "name": "Tallaght" },
+          { "@type": "Place", "name": "Templeogue" },
+          { "@type": "Place", "name": "Rathfarnham" },
+          { "@type": "Place", "name": "D16" },
+          { "@type": "Place", "name": "D14" },
+          { "@type": "Place", "name": "D24" },
+          { "@type": "Place", "name": "D6W" }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Wednesday",
+            "opens": "10:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Thursday", "Friday"],
+            "opens": "10:00",
+            "closes": "19:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "10:00",
+            "closes": "16:00"
+          }
+        ],
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://book.lesliequigleybeauty.ie/",
+            "actionPlatform": [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform"
+            ]
+          },
+          "result": {
+            "@type": "Reservation",
+            "name": "Nail and Brow appointment at Leslie Quigley Beauty"
+          }
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.lesliequigleybeauty.ie/#faq",
+        "isPartOf": {
+          "@id": "https://www.lesliequigleybeauty.ie/#webpage"
+        },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Where is Leslie Quigley Beauty located?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We are located in The Spawell Complex, Wellington Lane, Tallaght Road, Dublin 6W, D6W V992. You will find us inside Trevor Francis Hairdressing. We have ample free parking directly outside the door."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I book an appointment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The fastest way is using our secure online booking system at book.lesliequigleybeauty.ie. You can also send a WhatsApp message to 086 222 8500 or call us at 01 442 8500 to book."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a patch test before my appointment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, a patch test is mandatory for all first-time clients booking eyebrow henna or a brow/lash tint. Patch testing can be booked online directly. Please note that services requiring a patch test will require a valid patch test on file (carried out at least 48 hours before your treatment) before you can book those services online."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is BIAB (Builder In A Bottle)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "BIAB is a strong, soak-off structured gel that is applied over your natural nails to reinforce them. It is ideal for clients looking to grow their natural nails, preventing splitting or bending, and lasts up to 4 weeks before needing a refill."
+            }
+          }
+        ]
       }
     ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Leslie Quigley Beauty",
-    "url": "https://www.lesliequigleybeauty.ie/",
-    "description": "Nail bar and brow salon inside Trevor Francis Hairdressing at Spawell Complex. Specializing in BIAB Builder Gel overlays, Gel Polish manicures, Henna brows, and lash and brow tint treatments.",
-    "publisher": { "@id": "https://www.lesliequigleybeauty.ie/#beautysalon" },
-    "potentialAction": {
-      "@type": "ReserveAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://book.lesliequigleybeauty.ie/",
-        "actionPlatform": [
-          "http://schema.org/DesktopWebPlatform",
-          "http://schema.org/MobileWebPlatform"
-        ]
-      },
-      "result": { "@type": "Reservation", "name": "Nail and Brow appointment at Leslie Quigley Beauty" }
-    }
   }
   </script>
 
@@ -1328,7 +1387,7 @@
     <!-- Header: Close button and counter -->
     <div class="flex justify-between items-center w-full z-10">
       <span id="lightbox-counter" class="text-white/75 font-semibold text-sm tracking-wider"></span>
-      <button id="lightbox-close" class="text-white hover:text-amber-400 p-2 focus:outline-none transition-colors duration-200 cursor-pointer" aria-label="Close Lightbox">
+      <button id="lightbox-close" onclick="closeGalleryLightbox()" class="text-white hover:text-amber-400 p-2 focus:outline-none transition-colors duration-200 cursor-pointer" aria-label="Close Lightbox">
         <i data-lucide="x" class="w-8 h-8"></i>
       </button>
     </div>

@@ -157,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.remove('lightbox-open');
       }, 300);
     }
+    window.closeGalleryLightbox = closeLightbox;
     
     galleryImgs.forEach((img, index) => {
       img.addEventListener('click', () => {
@@ -168,7 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Click outside to close (backdrop)
     lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox || e.target === lightboxImg.parentElement || e.target === lightboxImg.parentElement.parentElement) {
+      // Close if click is not on the image itself and not on the prev/next navigation buttons
+      if (e.target !== lightboxImg && !e.target.closest('#lightbox-prev') && !e.target.closest('#lightbox-next')) {
         closeLightbox();
       }
     });
