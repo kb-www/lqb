@@ -167,10 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     closeBtn.addEventListener('click', closeLightbox);
     
-    // Click outside to close (backdrop)
+    // Click outside to close (backdrop & image)
     lightbox.addEventListener('click', (e) => {
-      // Close if click is not on the image itself and not on the prev/next navigation buttons
-      if (e.target !== lightboxImg && !e.target.closest('#lightbox-prev') && !e.target.closest('#lightbox-next')) {
+      // Close if click is not on the prev/next navigation buttons
+      if (!e.target.closest('#lightbox-prev') && !e.target.closest('#lightbox-next')) {
         closeLightbox();
       }
     });
