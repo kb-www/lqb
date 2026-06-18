@@ -3,3 +3,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.lesliequigleybeauty.ie/sitemap.xml
+Sitemap: https://www.lesliequigleybeauty.ie/page-sitemap.xml

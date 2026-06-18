@@ -1,5 +1,11 @@
 /cookie-policy.html /privacy-policy.html 301
 
+# Sitemap Redirects for legacy WordPress patterns
+/sitemap_index.xml  /sitemap.xml      301
+/post-sitemap.xml   /sitemap.xml      301
+/category-sitemap.xml /sitemap.xml    301
+
+# Services & Sections Redirects
 /services           /#services   301
 /services/*         /#services   301
 /services-pricing   /#services   301
@@ -27,3 +33,7 @@
 /nail-care          /#services   301
 /nail-care/         /#services   301
 /nail-care/*        /#services   301
+
+# Henna Brows Legacy URL Redirects
+/henna-brows-explained  /#services    301
+/henna-brows-explained/ /#services    301
