@@ -1,9 +1,29 @@
 /cookie-policy.html /privacy-policy.html 301
 
-/services     /#services   301
-/contact      /#contact    301
-/services/*     /#services   301
-/contact/*      /#contact    301
-/about/*        /            301
-/news/*       /            301
-/gift-card/*    /#gift-card 301
+/services           /#services   301
+/services/*         /#services   301
+/services-pricing   /#services   301
+/services-pricing/  /#services   301
+
+/contact            /#contact    301
+/contact/*          /#contact    301
+
+/about              /#about      301
+/about/             /#about      301
+/about/*            /#about      301
+
+/gift-card/*        /#gift-card  301
+
+/category/nails     /#services   301
+/category/nails/    /#services   301
+/category/*         /#services   301
+
+/blog               /            301
+/blog/              /            301
+/blog/*             /            301
+
+/news/*             /            301
+
+/nail-care          /#services   301
+/nail-care/         /#services   301
+/nail-care/*        /#services   301
