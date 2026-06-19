@@ -614,6 +614,23 @@
         width: auto !important;
       }
     }
+
+    /* Custom alerts to bypass purged Tailwind utilities */
+    .bg-amber-50\/50 {
+      background-color: rgba(201, 155, 80, 0.05) !important;
+    }
+    .border-amber-200 {
+      border-color: rgba(201, 155, 80, 0.25) !important;
+    }
+    .border-amber-200\/50 {
+      border-color: rgba(201, 155, 80, 0.15) !important;
+    }
+    .text-amber-800 {
+      color: #5c483a !important;
+    }
+    .text-amber-900 {
+      color: #241e1a !important;
+    }
   </style>
 </head>
 
@@ -1286,7 +1303,11 @@
             <div class="flex items-center gap-2 mb-1 text-amber-900 font-bold text-sm">
               <i data-lucide="zap" class="w-4 h-4 text-amber-600"></i> Fast, Secure Booking
             </div>
-            <p class="text-amber-800 text-xs leading-relaxed">Book in seconds with our own custom booking system. No account needed and free WhatsApp reminders!</p>
+            <p class="text-amber-800 text-xs leading-relaxed">Book in seconds. No account needed, free WhatsApp reminders!</p>
+            <div class="mt-2.5 pt-2.5 border-t border-amber-200/50 flex items-start gap-2 text-xs text-amber-900">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 mt-0.5 text-amber-600 flex-shrink-0"></i>
+              <span class="font-medium italic">(Can't find a spot? Message us directly—we can sometimes work a little magic!)</span>
+            </div>
           </div>
 
           <!-- CTAs -->
