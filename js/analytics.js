@@ -26,10 +26,10 @@ window.trackBookOnlineClick = function trackBookOnlineClick(source, url) {
   if (typeof window.gtag !== 'function') return;
   window.gtag('event', 'book_online_click', {
     source: source,
-    outbound_url: url || 'https://book.killineybarbers.ie/'
+    outbound_url: url || 'https://book.lesliequigleybeauty.ie/'
   });
   window.gtag('event', 'outbound_click', {
-    link_domain: 'book.killineybarbers.ie',
+    link_domain: 'book.lesliequigleybeauty.ie',
     source: source
   });
 };

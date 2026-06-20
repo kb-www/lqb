@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.addEventListener('click', (e) => {
-    const a = e.target.closest('a[href*="book.killineybarbers.ie"]');
+    const a = e.target.closest('a[href*="book.lesliequigleybeauty.ie"]');
     if (!a || typeof window.trackBookOnlineClick !== 'function') return;
     let source = a.getAttribute('data-ga-location');
     if (!source) source = a.closest('header') ? '404_header' : '404_content';
