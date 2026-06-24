@@ -1,6 +1,10 @@
 # https://www.lesliequigleybeauty.ie
 User-agent: *
 Allow: /
+Disallow: /privacy-policy.html
+Disallow: /booking-privacy.html
+Disallow: /gift-card-policy.html
+Disallow: /cookie-policy.html
 
 Sitemap: https://www.lesliequigleybeauty.ie/sitemap.xml
 Sitemap: https://www.lesliequigleybeauty.ie/page-sitemap.xml
