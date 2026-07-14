@@ -353,6 +353,23 @@
       padding: 1rem;
       border-bottom: 1px solid #f0eaeb;
     }
+
+    /* Desktop/Mobile Comparison Layout Toggle */
+    .desktop-comp-table {
+      display: none !important;
+    }
+    .mobile-comp-cards {
+      display: block !important;
+    }
+
+    @media (min-width: 768px) {
+      .desktop-comp-table {
+        display: block !important;
+      }
+      .mobile-comp-cards {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 
@@ -464,8 +481,8 @@
               </p>
               
               <!-- Comparison Table (Desktop/Tablet only) -->
-              <div class="hidden md:block mt-6 pt-4 border-t border-gray-200">
-                <table class="w-full text-left border-collapse text-xs md:text-sm comp-table">
+              <div class="desktop-comp-table mt-6 pt-4 border-t border-gray-200">
+                <table class="w-full text-left border-collapse text-sm comp-table">
                   <thead>
                     <tr class="bg-gray-100 text-gray-900 font-bold">
                       <th>Feature</th>
@@ -510,77 +527,81 @@
               </div>
 
               <!-- Mobile Comparison Cards (Mobile portrait/landscape only) -->
-              <div class="block md:hidden space-y-4 mt-6 pt-4 border-t border-gray-200">
+              <div class="mobile-comp-cards space-y-4 mt-6 pt-4 border-t border-gray-200">
+                <!-- Card 1 -->
                 <div class="bg-white border border-gray-150 rounded-xl p-4 shadow-sm">
-                  <h4 class="font-bold text-gray-900 mb-2.5 text-xs uppercase tracking-wider text-gold-contrast">Application Thickness</h4>
-                  <div class="grid grid-cols-3 gap-2 text-[11px] text-center">
-                    <div class="bg-amber-50/50 p-2 rounded border border-amber-100/50">
-                      <p class="font-bold text-amber-900 mb-0.5">BIAB</p>
-                      <p class="text-gray-600">Thin & natural</p>
-                    </div>
-                    <div class="bg-gray-50 p-2 rounded border border-gray-100">
-                      <p class="font-bold text-gray-900 mb-0.5">Acrylic</p>
-                      <p class="text-gray-600">Thick & bulky</p>
-                    </div>
-                    <div class="bg-gray-50 p-2 rounded border border-gray-100">
-                      <p class="font-bold text-gray-900 mb-0.5">Hard Gel</p>
-                      <p class="text-gray-600">Moderate</p>
-                    </div>
-                  </div>
+                  <h4 class="font-bold text-gray-950 mb-3 text-xs uppercase tracking-wider text-gold-contrast">Application Thickness</h4>
+                  <ul class="space-y-2 text-xs">
+                    <li class="flex justify-between items-center py-2 px-3 bg-amber-50/50 rounded border border-amber-100/50">
+                      <span class="font-bold text-amber-950">BIAB (Builder Gel)</span>
+                      <span class="text-amber-900 font-semibold">Thin & natural</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 px-3 bg-gray-50 rounded border border-gray-100">
+                      <span class="font-semibold text-gray-700">Acrylic Nails</span>
+                      <span class="text-gray-600">Thick & bulky</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 px-3 bg-gray-50 rounded border border-gray-100">
+                      <span class="font-semibold text-gray-700">Hard Gel</span>
+                      <span class="text-gray-600">Moderate to thick</span>
+                    </li>
+                  </ul>
                 </div>
 
+                <!-- Card 2 -->
                 <div class="bg-white border border-gray-150 rounded-xl p-4 shadow-sm">
-                  <h4 class="font-bold text-gray-900 mb-2.5 text-xs uppercase tracking-wider text-gold-contrast">Weight on Nail</h4>
-                  <div class="grid grid-cols-3 gap-2 text-[11px] text-center">
-                    <div class="bg-amber-50/50 p-2 rounded border border-amber-100/50">
-                      <p class="font-bold text-amber-900 mb-0.5">BIAB</p>
-                      <p class="text-gray-600">Lightweight</p>
-                    </div>
-                    <div class="bg-gray-50 p-2 rounded border border-gray-100">
-                      <p class="font-bold text-gray-900 mb-0.5">Acrylic</p>
-                      <p class="text-gray-600">Heavy</p>
-                    </div>
-                    <div class="bg-gray-50 p-2 rounded border border-gray-100">
-                      <p class="font-bold text-gray-900 mb-0.5">Hard Gel</p>
-                      <p class="text-gray-600">Moderate</p>
-                    </div>
-                  </div>
+                  <h4 class="font-bold text-gray-950 mb-3 text-xs uppercase tracking-wider text-gold-contrast">Weight on Nail</h4>
+                  <ul class="space-y-2 text-xs">
+                    <li class="flex justify-between items-center py-2 px-3 bg-amber-50/50 rounded border border-amber-100/50">
+                      <span class="font-bold text-amber-950">BIAB (Builder Gel)</span>
+                      <span class="text-amber-900 font-semibold">Lightweight</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 px-3 bg-gray-50 rounded border border-gray-100">
+                      <span class="font-semibold text-gray-700">Acrylic Nails</span>
+                      <span class="text-gray-600">Heavy</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 px-3 bg-gray-50 rounded border border-gray-100">
+                      <span class="font-semibold text-gray-700">Hard Gel</span>
+                      <span class="text-gray-600">Moderate</span>
+                    </li>
+                  </ul>
                 </div>
 
+                <!-- Card 3 -->
                 <div class="bg-white border border-gray-150 rounded-xl p-4 shadow-sm">
-                  <h4 class="font-bold text-gray-900 mb-2.5 text-xs uppercase tracking-wider text-gold-contrast">Removal Method</h4>
-                  <div class="grid grid-cols-3 gap-2 text-[11px] text-center">
-                    <div class="bg-amber-50/50 p-2 rounded border border-amber-100/50">
-                      <p class="font-bold text-amber-900 mb-0.5">BIAB</p>
-                      <p class="text-green-700 font-semibold">Soak-off</p>
-                    </div>
-                    <div class="bg-gray-50 p-2 rounded border border-gray-100">
-                      <p class="font-bold text-gray-900 mb-0.5">Acrylic</p>
-                      <p class="text-gray-600">Soak/File</p>
-                    </div>
-                    <div class="bg-gray-50 p-2 rounded border border-gray-100">
-                      <p class="font-bold text-gray-900 mb-0.5">Hard Gel</p>
-                      <p class="text-red-600 font-semibold">File-off</p>
-                    </div>
-                  </div>
+                  <h4 class="font-bold text-gray-950 mb-3 text-xs uppercase tracking-wider text-gold-contrast">Removal Method</h4>
+                  <ul class="space-y-2 text-xs">
+                    <li class="flex justify-between items-center py-2 px-3 bg-amber-50/50 rounded border border-amber-100/50">
+                      <span class="font-bold text-amber-950">BIAB (Builder Gel)</span>
+                      <span class="text-green-700 font-bold">Soak-off (safe & gentle)</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 px-3 bg-gray-50 rounded border border-gray-100">
+                      <span class="font-semibold text-gray-700">Acrylic Nails</span>
+                      <span class="text-gray-600">Soak-off or file-off</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 px-3 bg-gray-50 rounded border border-gray-100">
+                      <span class="font-semibold text-gray-700">Hard Gel</span>
+                      <span class="text-red-600 font-semibold">File-off only</span>
+                    </li>
+                  </ul>
                 </div>
 
+                <!-- Card 4 -->
                 <div class="bg-white border border-gray-150 rounded-xl p-4 shadow-sm">
-                  <h4 class="font-bold text-gray-900 mb-2.5 text-xs uppercase tracking-wider text-gold-contrast">Nail Health Impact</h4>
-                  <div class="grid grid-cols-3 gap-2 text-[11px] text-center">
-                    <div class="bg-amber-50/50 p-2 rounded border border-amber-100/50">
-                      <p class="font-bold text-amber-900 mb-0.5">BIAB</p>
-                      <p class="text-green-700 font-semibold">Strengthens</p>
-                    </div>
-                    <div class="bg-gray-50 p-2 rounded border border-gray-100">
-                      <p class="font-bold text-gray-900 mb-0.5">Acrylic</p>
-                      <p class="text-red-600 font-semibold">Weakens</p>
-                    </div>
-                    <div class="bg-gray-50 p-2 rounded border border-gray-100">
-                      <p class="font-bold text-gray-900 mb-0.5">Hard Gel</p>
-                      <p class="text-gray-600">Neutral</p>
-                    </div>
-                  </div>
+                  <h4 class="font-bold text-gray-950 mb-3 text-xs uppercase tracking-wider text-gold-contrast">Nail Health Impact</h4>
+                  <ul class="space-y-2 text-xs">
+                    <li class="flex justify-between items-center py-2 px-3 bg-amber-50/50 rounded border border-amber-100/50">
+                      <span class="font-bold text-amber-950">BIAB (Builder Gel)</span>
+                      <span class="text-green-700 font-bold">Strengthens natural nail</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 px-3 bg-gray-50 rounded border border-gray-100">
+                      <span class="font-semibold text-gray-700">Acrylic Nails</span>
+                      <span class="text-red-600 font-semibold">Can weaken natural nail</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 px-3 bg-gray-50 rounded border border-gray-100">
+                      <span class="font-semibold text-gray-700">Hard Gel</span>
+                      <span class="text-gray-600">Maintains status quo (neutral)</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
